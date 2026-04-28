@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/phonebook-reduxtoolkit-dz31/static/css/main.2165c960.css",
-    "main.js": "/phonebook-reduxtoolkit-dz31/static/js/main.bc615b77.js",
+    "main.js": "/phonebook-reduxtoolkit-dz31/static/js/main.00939a53.js",
     "static/media/noContactsYet.jpg": "/phonebook-reduxtoolkit-dz31/static/media/noContactsYet.984719bde3449d0091cf.jpg",
     "index.html": "/phonebook-reduxtoolkit-dz31/index.html",
     "main.2165c960.css.map": "/phonebook-reduxtoolkit-dz31/static/css/main.2165c960.css.map",
-    "main.bc615b77.js.map": "/phonebook-reduxtoolkit-dz31/static/js/main.bc615b77.js.map"
+    "main.00939a53.js.map": "/phonebook-reduxtoolkit-dz31/static/js/main.00939a53.js.map"
   },
   "entrypoints": [
     "static/css/main.2165c960.css",
-    "static/js/main.bc615b77.js"
+    "static/js/main.00939a53.js"
   ]
 }
