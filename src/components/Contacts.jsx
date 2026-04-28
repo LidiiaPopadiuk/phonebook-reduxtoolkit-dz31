@@ -1,36 +1,27 @@
-import { Component } from "react";
+import { getContacts } from '../redux/contacts/contactsSelectors'
 import contactsImg from '../img/noContactsYet.jpg'
+import { useSelector, useDispatch } from 'react-redux'
+import { removeContact } from '../redux/contacts/contactsSlice'
 
-export class Contacts extends Component {
+export const Contacts = () => {
+    const dispatch = useDispatch()
 
-    deleteContact = (e) => {
-        const contactId = e.target.id
-        this.props.deleteData(contactId)
-    }
-
-    render() {
-        const { contacts, filter } = this.props.listData
-        const filterValue = filter.toUpperCase()
-
-        const filterContacts = contacts.filter((contact) => {
-            return contact.name.toUpperCase().includes(filterValue)
-        })
-        return (
-            <div>
-                <h2>Contacts</h2>
-                {filterContacts.length === 0 ? (
-                    <div>
-                        <p>No contacts yet</p>
-                        <img style={{ width: '100px', height: '100px' }} src={contactsImg} alt={contactsImg} />
-                    </div>
-                ) : (
-                    <ul>
-                        {filterContacts.map(contact => {
-                            return <li key={contact.id}>{contact.name}: {contact.number} <button id={contact.id} onClick={this.deleteContact}>Delete</button></li>
-                        })}
-                    </ul>
-                )}
-            </div>
-        )
-    }
+    const contacts = useSelector(getContacts)
+    return (
+        <div>
+            <h2>Contacts</h2>
+            {contacts.length === 0 ? (
+                <div>
+                    <p>No contacts yet</p>
+                    <img style={{ width: '100px', height: '100px' }} src={contactsImg} alt={contactsImg} />
+                </div>
+            ) : (
+                <ul>
+                    {contacts.map(contact => {
+                        return <li key={contact.id}>{contact.name}: {contact.number} <button id={contact.id} onClick={() => dispatch(removeContact(contact.id))}>Delete</button></li>
+                    })}
+                </ul>
+            )}
+        </div>
+    )
 }
